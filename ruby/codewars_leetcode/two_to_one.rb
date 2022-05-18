@@ -6,12 +6,12 @@ coming from s1 or s2.
 =end
 
 def longest(a1, a2)
-  # your code
+  (a1 + a2).chars.uniq.sort.join('');
 end
 
 a = "xyaabbbccccdefww"
 b = "xxxxyyyyabklmopq"
-longest(a, b) -> "abcdefklmopqwxy"
+p longest(a, b) #-> "abcdefklmopqwxy"
 
 a = "abcdefghijklmnopqrstuvwxyz"
-longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
+p longest(a, a) #-> "abcdefghijklmnopqrstuvwxyz"
