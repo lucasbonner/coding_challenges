@@ -5,8 +5,8 @@ Example : n=5 --> [5,4,3,2,1]
 =end
 
 def reverse_seq(n)
-  #your code here
+  (1..n).to_a.reverse
 end
 
-Test.assert_equals(reverse_seq(5),[5,4,3,2,1])
-Test.assert_equals(reverse_seq(6),[6,5,4,3,2,1])
+p reverse_seq(5),[5,4,3,2,1]
+p reverse_seq(6),[6,5,4,3,2,1]
