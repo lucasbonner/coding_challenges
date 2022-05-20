@@ -73,6 +73,13 @@ if elem is included in closers
   see if currOpen includes associated opener
     if it does, remove that element and continue
 
+new idea:
+try a pop push stack
+if current is an opener, push to stack
+  if we find appropriate closer pop from stack
+  if not return false
+
+
 
 =end
 #'(', ')', '{', '}', '[' and ']
@@ -84,23 +91,23 @@ def is_valid(s)
   }
   openers = ['(', '{', '[']
   closers = [')', '}', ']']
+  stack = [];
 
   s.chars.each do |char|
     if openers.include?(char)
-      currOpen = char
+      stack << char
       next
     end
 
-    if currOpen && char != associater[currOpen]
-      return false
+    if associater[stack[stack.length - 1]] == char
+      stack.pop
+      next
     end
 
-    if closers.include?(char) && char != associater[currOpen]
-     return false
-    end
+    return false
   end
 
-  return true
+  return stack.length == 0
 end
 
 p is_valid("()") #true
@@ -108,3 +115,4 @@ p is_valid("()[]{}") #true
 p is_valid("(]") #false
 p is_valid("([)]") #false
 p is_valid("(]") #false
+p is_valid("{[]}") #true
