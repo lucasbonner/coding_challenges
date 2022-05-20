@@ -30,6 +30,10 @@ func isValid(s string) bool {
 			continue
 		}
 
+		if len(stack)-1 < 0 {
+			return false
+		}
+
 		endOfStack := len(stack) - 1
 		if chars[i] == associater[stack[endOfStack]] {
 			stack = append(stack[:endOfStack])
