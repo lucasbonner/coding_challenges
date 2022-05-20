@@ -44,4 +44,5 @@ func main() {
 	fmt.Println(isValid("()"))     // true
 	fmt.Println(isValid("()[]{}")) //true
 	fmt.Println(isValid("(]"))     //false
+	fmt.Println(isValid("]"))
 }
