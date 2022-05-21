@@ -4,6 +4,12 @@ You are given the heads of two sorted linked lists list1 and list2.
 
 Merge the two lists in a one sorted list. The list should be made by splicing together the nodes of the first two lists.
 
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+
 Return the head of the merged linked lis
 examples:
 Input: list1 = [1,2,4], list2 = [1,3,4]
@@ -42,26 +48,19 @@ get length of whichever input array is longer
     if element exists in array2 add to result
 return result
 
+
+so each element is a list node as so:
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
 */
 
 
 var mergeTwoLists = function(list1, list2) {
-  const iterateLength = list1.length > list2.length ? list1.length : list2.length;
-  let result = [];
 
-  for (let i = 0; i < iterateLength; i++) {
-    if (list1[i]) {
-      result.push(list1[i]);
-    }
-
-    if (list2[i]) {
-      result.push(list2[i])
-    }
-  }
-
-  return result;
 };
 
-console.log(mergeTwoLists([1,2,4], [1,3,4])) //[1,1,2,3,4,4]
-console.log(mergeTwoLists([], [])) //[]
-console.log(mergeTwoLists([], [0])) //[0]
+// console.log(mergeTwoLists([1,2,4], [1,3,4])) //[1,1,2,3,4,4]
+// console.log(mergeTwoLists([], [])) //[]
+// console.log(mergeTwoLists([], [0])) //[0]
