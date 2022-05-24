@@ -11,6 +11,10 @@
 # @return {ListNode}
 
 def merge_two_lists(list1, list2)
+  if !list1 || !list2
+     return list1 ? list1 : list2
+  end
+
   currentNode = list1.val < list2.val ? list1 : list2
   result = currentNode
   list1 = currentNode == list1 ? list1.next : list1
