@@ -42,6 +42,14 @@ example have i loop from 0 to length
   j loop must start at i and go to length
 
 
+took too much time, complexity was too much
+
+new plan:
+single loop
+  on each loop see if current element is smaller than the current min
+    if it is reassign min to that
+  check which is max, result or result of subtracting min from the current element
+
 */
 /*
  let difference = num2 - num1;
@@ -50,21 +58,44 @@ example have i loop from 0 to length
       }
 */
 
+// var maxProfit = function(prices) {
+//   let biggestDifference = 0;
+
+//   for (let i = 0; i < prices.length; i++) {
+//     for (let j = i; j < prices.length; j++) {
+//       let num1 = prices[i];
+//       let num2 = prices[j];
+
+//       let difference = (num2 - num1);
+//       if (difference > biggestDifference) {
+//         biggestDifference = difference;
+//       }
+//     }
+//   }
+//   return biggestDifference;
+// };
+
+//first solution:
+// var maxProfit = function(prices) {
+//   let biggestDifference = 0;
+
+//   for (let i = 0; i < prices.length; i++) {
+//     for (let j = i; j < prices.length; j++) {
+//       let num1 = prices[i];
+//       let num2 = prices[j];
+
+//       let difference = (num2 - num1);
+//       if (difference > biggestDifference) {
+//         biggestDifference = difference;
+//       }
+//     }
+//   }
+//   return biggestDifference;
+// };
+
 var maxProfit = function(prices) {
   let biggestDifference = 0;
-
-  for (let i = 0; i < prices.length; i++) {
-    for (let j = i; j < prices.length; j++) {
-      let num1 = prices[i];
-      let num2 = prices[j];
-
-      let difference = (num2 - num1);
-      if (difference > biggestDifference) {
-        biggestDifference = difference;
-      }
-    }
-  }
-  return biggestDifference;
+  let min = prices[0];
 };
 
 console.log(maxProfit([7, 1, 5, 3, 6, 4])); //5
