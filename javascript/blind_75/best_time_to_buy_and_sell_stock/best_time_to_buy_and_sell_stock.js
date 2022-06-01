@@ -95,7 +95,15 @@ single loop
 
 var maxProfit = function(prices) {
   let biggestDifference = 0;
+  let result = 0;
   let min = prices[0];
+
+  for (let i = 0; i < prices.length; i++) {
+    let currentElem = prices[i];
+    min = Math.min(currentElem, min);
+    result = Math.max(result, currentElem - min);
+  }
+  return result;
 };
 
 console.log(maxProfit([7, 1, 5, 3, 6, 4])); //5
