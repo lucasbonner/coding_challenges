@@ -60,6 +60,23 @@ base case is if both right and left are null
 
 var invertTree = function(root) {
 
+  var reversal = function(root) {
+    let left = root.left;
+    let right = root.right;
+
+    root.left = right;
+    root.right = left;
+
+    if (!root.left && !root.right) {
+      return;
+    }
+
+    reversal(root.left);
+    reversal(root.right);
+  }
+
+  reversal(root);
+  return root;
 };
 
 console.log(invertTree([4,2,7,1,3,6,9])); //[4,7,2,9,6,3,1]
