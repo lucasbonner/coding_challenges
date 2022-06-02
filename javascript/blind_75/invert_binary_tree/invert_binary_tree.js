@@ -71,6 +71,12 @@ var invertTree = function(root) {
       return;
     }
 
+    if (!root.left) {
+      return reversal(root.right);
+    } else if (!root.right) {
+      return reversal(root.left);
+    }
+
     reversal(root.left);
     reversal(root.right);
   }
