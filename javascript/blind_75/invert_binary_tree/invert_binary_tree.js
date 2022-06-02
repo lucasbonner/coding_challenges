@@ -59,6 +59,9 @@ base case is if both right and left are null
 */
 
 var invertTree = function(root) {
+  if (!root) {
+    return root;
+  }
 
   var reversal = function(root) {
     let left = root.left;
