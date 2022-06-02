@@ -33,7 +33,7 @@ split and reverse and see if equals self
 
 */
 
-const ALPHABET = 'abcdefghijklmnopqrstuvwxyz'.split('');
+const ALPHABET = 'abcdefghijklmnopqrstuvwxyz0123456789'.split('');
 
 var alphanumerics = function(char) {
   return ALPHABET.includes(char);
@@ -45,6 +45,8 @@ var isPalindrome = function(s) {
   return s === s.split('').reverse().join('');
 }
 
-console.log(isPalindrome("A man, a plan, a canal: Panama")); //true
+// console.log(isPalindrome("A man, a plan, a canal: Panama")); //true
 // console.log(isPalindrome("race a car")); //false
 // console.log(isPalindrome(" ")); //true
+console.log(isPalindrome("0P")); //false
+//forgot to add numbers to the filtering
