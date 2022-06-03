@@ -67,6 +67,10 @@ var search = function(nums, target) {
   while (comparisonElement !== target) {
     comparisonElement = nums[index];
 
+    if (nums.length === 1 && target !== comparisonElement) {
+      break;
+    }
+
     if (target === comparisonElement) {
       result = index;
       break;
@@ -95,4 +99,5 @@ var search = function(nums, target) {
 
 // console.log(search([-1,0,3,5,9,12], 9)); //4
 // console.log(search([-1,0,3,5,9,12], 2)); //-1 because 2 not present
-console.log(search([5], 5)); //-1 because 2 not present
+// console.log(search([5], 5)); //0
+console.log(search([5], -5)); //-1 because 2 not present
