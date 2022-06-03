@@ -13,7 +13,10 @@ instructions:
 
 examples:
 "anagram" and "nagaram"
+anagram sorted is aaagmnr
+nagaram sorted is aaagmnr
 
+should be able to just use sorted strings to return a bool
 */
 var sortAlphabetically = function(a, b) {
   if (a < b) {
@@ -28,7 +31,7 @@ var sortAlphabetically = function(a, b) {
 }
 
 var isAnagram = function(s, t) {
-
+  return s.split('').sort(sortAlphabetically).join('') === t.split('').sort(sortAlphabetically).join('');
 };
 
 console.log(isAnagram("anagram", "nagaram")); //true
