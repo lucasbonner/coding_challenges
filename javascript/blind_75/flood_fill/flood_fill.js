@@ -54,10 +54,10 @@ var floodFill = function(image, sr, sc, newColor) {
     for (let j = 0; j < currentRow.length; j++) {
       let currentElem = currentRow[j];
 
-      let up = image[row - 1][j] ? image[row - 1][j] : null;
-      let down = image[row + 1][j] ? image[row + 1][j] : null;
-      let left = image[row][j - 1] ? image[row][j - 1] : null;
-      let right = image[row][j + 1] ? image[row][j + 1] : null;
+      let up = image[row - 1]?.[j] || null;
+      let down = image[row + 1]?.[j] || null;
+      let left = image[row]?.[j - 1] || null;
+      let right = image[row]?.[j + 1] || null;
 
       if (up === newColor || down === newColor || left === newColor || right === newColor) {
         image[row][j] = newColor;
