@@ -61,13 +61,18 @@ based off whether the target is less than or equal to num at startIndex
 
 var search = function(nums, target) {
   let index = Math.floor(nums.length / 2);
+  let originalMiddle = nums[index];
   let comparisonElement =  nums[index];
-  let result = target === comparisonElement ? index : -1;
+  let result = -1;
 
-  while (comparisonElement !== target) {
+  if (nums[index] === target) {
+    return index;
+  }
+
+  while (true) {
     comparisonElement = nums[index];
 
-    if (nums.length === 1 && target !== comparisonElement) {
+    if (index >= nums.length || index < 0) {
       break;
     }
 
@@ -76,28 +81,19 @@ var search = function(nums, target) {
       break;
     }
 
-    if (comparisonElement > target && nums[index - 1] < target) {
-      result = -1;
-      break;
-    }
-
-    if (comparisonElement < target && nums[index + 1] > target) {
-      result = -1;
-      break;
-    }
-
-    if (comparisonElement > target) {
+    if (originalMiddle > target) {
       index--;
     }
 
-    if (comparisonElement < target) {
+    if (originalMiddle < target) {
       index++;
     }
   }
+
   return result;
 };
 
-// console.log(search([-1,0,3,5,9,12], 9)); //4
+console.log(search([-1,0,3,5,9,12], 9)); //4
 // console.log(search([-1,0,3,5,9,12], 2)); //-1 because 2 not present
 // console.log(search([5], 5)); //0
-console.log(search([5], -5)); //-1 because 2 not present
+// console.log(search([5], -5)); //-1
