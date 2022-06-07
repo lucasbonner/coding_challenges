@@ -47,6 +47,7 @@ var floodFill = function(image, sr, sc, newColor) {
   let i = 0;
   let row = 0;
   let original = image[sr][sc];
+  let changed = false;
   image[sr][sc] = newColor;
 
   while (i !== image.length) {
@@ -62,8 +63,16 @@ var floodFill = function(image, sr, sc, newColor) {
 
       if ((up === newColor || down === newColor || left === newColor || right === newColor) && currentElem === original) {
         image[row][j] = newColor;
+        changed = true;
+        row = 0;
+        i = 0;
       }
 
+    }
+
+    if (changed) {
+      changed = false;
+      continue;
     }
 
     i++;
