@@ -56,6 +56,10 @@ var floodFill = function(image, sr, sc, newColor) {
   let changed = false;
   image[sr][sc] = newColor;
 
+  if (original === newColor) {
+    return image;
+  }
+
   while (i !== image.length) {
     let currentRow = image[row];
 
