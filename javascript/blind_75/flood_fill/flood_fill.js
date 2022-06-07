@@ -50,50 +50,59 @@ and set i back to 0
 */
 
 var floodFill = function(image, sr, sc, newColor) {
-  let i = 0;
-  let row = 0;
-  let original = image[sr][sc];
-  let changed = false;
-  image[sr][sc] = newColor;
+  const current = image[sr][sc];
 
-  if (original === newColor) {
+  if (current === newColor) {
     return image;
   }
 
-  while (i !== image.length) {
-    let currentRow = image[row];
+  fill(image, sr, sc, newColor, current);
 
-    for (let j = 0; j < currentRow.length; j++) {
-      let currentElem = currentRow[j];
-
-      if (row === sr && j === sc) {
-        continue;
-      }
-
-      let up = row - 1 >= 0 ? image[row - 1][j] : null;
-      let down = row + 1 < image.length ? image[row + 1][j] : null;
-      let left = image[row][j - 1] || null;
-      let right = image[row][j + 1] || null;
-
-      if ((up === newColor || down === newColor || left === newColor || right === newColor) && image[row][j] === original && image[row][j] !== newColor) {
-        image[row][j] = newColor;
-        changed = true;
-        row = 0;
-        i = 0;
-      }
-
-    }
-
-    if (changed) {
-      changed = false;
-      continue;
-    }
-
-    i++;
-    row++;
-  }
   return image;
 };
+
+var fill = function(image, sr, sc, newColor, current) {
+  //if row is less than 0
+  if (sr < 0) {
+    return;
+  }
+
+  //if column is less than 0
+  if (sc < 0) {
+    return;
+  }
+
+  //if row is greater than image length
+  if (sr > image.length - 1) {
+    return;
+  }
+
+  //if column is greater than image length
+  if (sc > image[sr].length - 1) {
+    return;
+  }
+
+  //if the current pixel is not what it needs to be
+  if (image[sr][sc] !== current) {
+    return;
+  }
+
+  //update the new color
+  image[sr][sc] = newColor;
+
+  //fill in all four directions
+  //fill prev row
+  fill(image, sr - 1, sc, newColor, current);
+
+  //fill next row
+  fill(image, sr + 1, sc, newColor, current);
+
+  //fill prev col
+  fill(image, sr, sc - 1, newColor, current);
+
+  //fill next col
+  fill(image, sr, sc + 1, newColor, current);
+}
 
 // console.log(floodFill([[1,1,1],[1,1,0],[1,0,1]], 1, 1, 2)); //[[2,2,2],[2,2,0],[2,0,1]]
 // console.log(floodFill([[0,0,0],[0,0,0]], 0, 0, 2)); //[[2,2,2],[2,2,2]]
