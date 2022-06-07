@@ -30,13 +30,11 @@ var sum = function(accum, num) {
 var maxSubArray = function(nums) {
   let result = nums.reduce(sum);
 
-  for (let i = 0; i < nums.length; i++) {
-    for (let j = i + 1; j < nums.length; j++) {
+  for (let i = 0; i <= nums.length; i++) {
+    for (let j = i + 1; j <= nums.length; j++) {
       let currentArr = nums.slice(i, j);
       let currentSum = currentArr.reduce(sum);
       result = currentSum > result ? currentSum : result;
-      result = nums[j] > result ? nums[j] : result;
-      result = nums[i] > result ? nums[i] : result;
     }
   }
 
@@ -47,4 +45,4 @@ console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4])); // 6
 console.log(maxSubArray([1])); // 1
 console.log(maxSubArray([5,4,-1,7,8])); // 23
 console.log(maxSubArray([-2,1]));
-console.log(maxSubArray([8,-19,5,-4,20]));
+console.log(maxSubArray([8,-19,5,-4,20])); //21
