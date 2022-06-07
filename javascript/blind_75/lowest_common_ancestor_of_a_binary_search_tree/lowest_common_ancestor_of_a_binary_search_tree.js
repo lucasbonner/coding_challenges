@@ -43,7 +43,18 @@ but how do I get the LCA from this?
 
 */
 var lowestCommonAncestor = function(root, p, q) {
+  let result = root;
 
+  //recursive case
   lowestCommonAncestor(root.left, p, q);
   lowestCommonAncestor(root.right, p, q);
+
+  //base case
+  if (root === p || root === q) {
+    return root;
+  }
 };
+
+console.log(lowestCommonAncestor([6,2,8,0,4,7,9,null,null,3,5], 2, 8)); //6
+console.log(lowestCommonAncestor([6,2,8,0,4,7,9,null,null,3,5], 2, 4)); //2
+console.log(lowestCommonAncestor([2,1], 2, 1)); //2

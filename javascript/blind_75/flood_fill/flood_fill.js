@@ -104,8 +104,8 @@ var fill = function(image, sr, sc, newColor, current) {
   fill(image, sr, sc + 1, newColor, current);
 }
 
-// console.log(floodFill([[1,1,1],[1,1,0],[1,0,1]], 1, 1, 2)); //[[2,2,2],[2,2,0],[2,0,1]]
-// console.log(floodFill([[0,0,0],[0,0,0]], 0, 0, 2)); //[[2,2,2],[2,2,2]]
-// console.log(floodFill([[0,0,0],[0,1,1]], 1, 1, 1));
-// console.log(floodFill([[0,0,1],[0,0,0]], 0, 0, 2)); //[[2,2,1],[2,2,2]]
+console.log(floodFill([[1,1,1],[1,1,0],[1,0,1]], 1, 1, 2)); //[[2,2,2],[2,2,0],[2,0,1]]
+console.log(floodFill([[0,0,0],[0,0,0]], 0, 0, 2)); //[[2,2,2],[2,2,2]]
+console.log(floodFill([[0,0,0],[0,1,1]], 1, 1, 1));
+console.log(floodFill([[0,0,1],[0,0,0]], 0, 0, 2)); //[[2,2,1],[2,2,2]]
 console.log(floodFill([[0,1,0],[0,0,1]], 1, 1, 1)); //[[1,1,0],[1,1,1]]
