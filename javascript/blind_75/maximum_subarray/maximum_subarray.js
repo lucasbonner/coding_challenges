@@ -23,22 +23,17 @@ i think I could nest two loops together
     and at end return the highest number in the array
 */
 
-var sum = function(accum, num) {
-  return accum += num;
-}
 
 var maxSubArray = function(nums) {
-  let result = nums.reduce(sum);
+  let temp = 0;
+  let max = -Infinity;
 
   for (let i = 0; i <= nums.length; i++) {
-    for (let j = i + 1; j <= nums.length; j++) {
-      let currentArr = nums.slice(i, j);
-      let currentSum = currentArr.reduce(sum);
-      result = currentSum > result ? currentSum : result;
-    }
+    temp = Math.max(nums[i], nums[i] + temp);
+    max = temp > max ? temp : max;
   }
 
-  return result;
+  return max;
 };
 
 console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4])); // 6
