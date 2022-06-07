@@ -22,3 +22,11 @@ i think I could nest two loops together
     and sum that section of the array and save in a result array
     and at end return the highest number in the array
 */
+
+var maxSubArray = function(nums) {
+
+};
+
+console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4])); // 6
+console.log(maxSubArray([1])); // 1
+console.log(maxSubArray([5,4,-1,7,8])); // 23
