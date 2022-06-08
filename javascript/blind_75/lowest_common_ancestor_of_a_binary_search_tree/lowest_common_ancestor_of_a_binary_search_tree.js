@@ -43,16 +43,19 @@ but how do I get the LCA from this?
 
 */
 var lowestCommonAncestor = function(root, p, q) {
-  let result = root;
+  //set current value to the value of the root
+  let curVal = root.val;
 
-  //recursive case
-  lowestCommonAncestor(root.left, p, q);
-  lowestCommonAncestor(root.right, p, q);
-
-  //base case
-  if (root === p || root === q) {
-    return root;
+  //if both p and q are greater than val let's go right
+  if (p.val > curVal && q.val > curVal) {
+    lowestCommonAncestor(root.right, p, q);
   }
+
+  if (p.val < curVal && q.val < curVal) {
+    lowestCommonAncestor(root.left, p, q);
+  }
+
+  return root;
 };
 
 console.log(lowestCommonAncestor([6,2,8,0,4,7,9,null,null,3,5], 2, 8)); //6
