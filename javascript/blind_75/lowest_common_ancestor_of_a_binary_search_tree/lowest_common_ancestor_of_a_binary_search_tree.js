@@ -48,11 +48,11 @@ var lowestCommonAncestor = function(root, p, q) {
 
   //if both p and q are greater than val let's go right
   if (p.val > curVal && q.val > curVal) {
-    lowestCommonAncestor(root.right, p, q);
+    return lowestCommonAncestor(root.right, p, q);
   }
 
   if (p.val < curVal && q.val < curVal) {
-    lowestCommonAncestor(root.left, p, q);
+    return lowestCommonAncestor(root.left, p, q);
   }
 
   return root;
