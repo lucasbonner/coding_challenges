@@ -35,14 +35,42 @@ examples:
 
 maybe an object?
   {left: 1, right: 2}
+but how would I keep track?
 
-
-
-
+this might be a simple recursion
+  of setting up the object with the counts
+  and having a recursing function
+    whenver function recurses left, add to left
+    whenever function recurses right add to right
+  and then at end can see if counts subtracted from one another equals 0 or 1
 
 */
 var isBalanced = function(root) {
+  let depthCounter = {'right': 0, 'left': 0};
 
+  var dive = function(node) {
+    if (node.right) {
+      depthCounter['right']++;
+      dive(node.right);
+    }
+
+    if (node.left) {
+      depthCounter['left']++;
+      dive(node.left);
+    }
+  }
+
+  if (root.right) {
+    depthCounter['right']++;
+    dive(root.right);
+  }
+
+  if (root.left) {
+    depthCounter['left']++;
+    dive(root.left);
+  }
+
+  return depthCounter;
 };
 
 console.log(isBalanced([3,9,20,null,null,15,7])); //true
