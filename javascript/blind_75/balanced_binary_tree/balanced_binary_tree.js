@@ -70,7 +70,15 @@ var isBalanced = function(root) {
     dive(root.left);
   }
 
-  return depthCounter;
+  let rightCount = depthCounter['right'];
+  let leftCount = depthCounter['left'];
+  let difference = (rightCount > leftCount) ? (rightCount - leftCount) : (leftCount - rightCount);
+
+  if ((rightCount === leftCount) || difference === 1) {
+    return true;
+  }
+
+  return false;
 };
 
 console.log(isBalanced([3,9,20,null,null,15,7])); //true
